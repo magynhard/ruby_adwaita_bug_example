@@ -43,8 +43,12 @@ class SampleApp
     vbox.append(group)
 
     # CAN NOT FIND AboutDialog or ButtonRow on MS Windows
-    #dialog = Adwaita::AboutDialog.new
-    #button_row = Adwaita::ButtonRow.new
+
+    # => uninitialized constant Adwaita::AboutDialog
+    dialog = Adwaita::AboutDialog.new
+
+    # => uninitialized constant Adwaita::ButtonRow
+    button_row = Adwaita::ButtonRow.new
 
     window.child = vbox
     window.present
