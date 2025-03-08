@@ -42,16 +42,23 @@ class SampleApp
     group.add action_row
     vbox.append(group)
 
-    # CAN NOT FIND AboutDialog or ButtonRow on MS Windows
+    # CAN NOT FIND AboutDialog or ButtonRow on MS Windows native and WSL Ubuntu 22.04
 
     # => uninitialized constant Adwaita::AboutDialog
     dialog = Adwaita::AboutDialog.new
+    dialog.application_name = "Sample App"
+    dialog.developer_name = "Super Developer"
+    dialog.version = "1.0.0"
+    dialog.license_type = Gtk::License::MIT_X11
 
     # => uninitialized constant Adwaita::ButtonRow
     button_row = Adwaita::ButtonRow.new
 
     window.child = vbox
     window.present
+
+    dialog.show
+    dialog.present(window)
   end
 
   def run
